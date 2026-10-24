@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  --bg: #080b14;
+  --panel: #111625;
+  --display: #0b1020;
+  --key: #1a2133;
+  --key-hover: #28314a;
+  --text: #f3f5ff;
+  --muted: #8e9ab5;
+  --border: #293149;
+  --purple: #8255f6;
+  --purple-light: #a58aff;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(
+      ellipse at 50% 8%,
+      rgba(107, 76, 220, 0.15),
+      transparent 44%
+    ),
+    var(--bg);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+button {
+  font: inherit;
+}
+.app {
+  width: min(100% - 36px, 1080px);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page-header {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(142, 154, 181, 0.13);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--text);
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+}
+.brand strong {
+  color: var(--purple-light);
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 11px;
+  background: linear-gradient(140deg, #8255f6, #4b7eff);
+  color: white;
+  font-size: 25px;
+}
+.project-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--muted);
+}
+.calculator {
+  width: min(100%, 420px);
+  margin: 46px auto 30px;
+  padding: 25px;
+  border: 1px solid rgba(139, 155, 194, 0.18);
+  border-radius: 23px;
+  background: rgba(17, 22, 37, 0.95);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+}
+.calculator-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.eyebrow {
+  margin: 0 0 5px;
+  color: #a58aff;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+}
+h1 {
+  font:
+    700 25px "Space Grotesk",
+    sans-serif;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+.history-toggle {
+  border: 1px solid var(--border);
+  background: #171e30;
+  color: #c6cde0;
+  border-radius: 10px;
+  padding: 9px 11px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.history-toggle:hover {
+  border-color: var(--purple);
+  color: white;
+}
+.history-toggle span {
+  margin-left: 4px;
+}
+.display {
+  min-height: 126px;
+  padding: 18px 17px;
+  margin-bottom: 17px;
+  border: 1px solid rgba(139, 155, 194, 0.12);
+  border-radius: 15px;
+  background: var(--display);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.expression {
+  width: 100%;
+  min-height: 22px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.display-value {
+  width: 100%;
+  margin-top: 4px;
+  font:
+    600 clamp(30px, 7vw, 42px) "Space Grotesk",
+    sans-serif;
+  letter-spacing: -1px;
+  text-align: right;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.key {
+  min-height: 59px;
+  border: 1px solid rgba(144, 158, 193, 0.08);
+  border-radius: 13px;
+  background: var(--key);
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+.key:hover {
+  background: var(--key-hover);
+  border-color: rgba(165, 138, 255, 0.35);
+}
+.key:active {
+  transform: scale(0.96);
+}
+.key:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 2px;
+}
+.key.utility {
+  color: #b4a1ff;
+  background: #202039;
+  font-size: 15px;
+}
+.key.operator {
+  color: #c3adff;
+  background: #24203d;
+  font-size: 23px;
+}
+.key.operator.selected {
+  background: #3a2a68;
+  border-color: var(--purple);
+}
+.key.equals {
+  background: linear-gradient(145deg, #8a5cf6, #6842dd);
+  color: white;
+  border-color: transparent;
+  font-size: 25px;
+  box-shadow: 0 6px 18px rgba(115, 75, 230, 0.22);
+}
+.key.equals:hover {
+  background: linear-gradient(145deg, #9b76ff, #7955ed);
+}
+.keyboard-hint {
+  color: #76829d;
+  text-align: center;
+  font-size: 11px;
+  margin: 17px 0 0;
+}
+.history-panel {
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  padding-top: 16px;
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.history-header h2 {
+  margin: 0;
+  font-size: 13px;
+}
+.history-header button {
+  color: #b6a3ff;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 11px;
+}
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  max-height: 170px;
+  overflow-y: auto;
+}
+.history-list li {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(142, 154, 181, 0.1);
+  font-size: 12px;
+}
+.history-list li span:first-child {
+  color: var(--muted);
+}
+.history-list li span:last-child {
+  font-weight: 700;
+}
+.empty-history {
+  color: var(--muted);
+}
+footer {
+  margin-top: auto;
+  padding: 24px 0;
+  text-align: center;
+  color: #76829d;
+  font-size: 11px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 480px) {
+  .app {
+    width: min(100% - 24px, 420px);
+  }
+  .page-header {
+    min-height: 70px;
+  }
+  .brand {
+    font-size: 16px;
+    gap: 8px;
+  }
+  .brand-mark {
+    width: 31px;
+    height: 31px;
+  }
+  .project-tag {
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+  .calculator {
+    margin-top: 27px;
+    padding: 18px;
+    border-radius: 19px;
+  }
+  .keypad {
+    gap: 8px;
+  }
+  .key {
+    min-height: 56px;
+    border-radius: 11px;
+  }
+}
+@media (max-width: 340px) {
+  .calculator {
+    padding: 12px;
+  }
+  .key {
+    min-height: 50px;
+  }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive calculator built with HTML, CSS, and JavaScript for the CodeAlpha Frontend Development Internship.">
+  <title>Calculator | CodeAlpha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <a class="brand" href="#" aria-label="Alamzy Calculator home"><span class="brand-mark">÷</span><span>Alamzy <strong>Calculator</strong></span></a>
+      <span class="project-tag">CODEALPHA · TASK 02</span>
+    </header>
+
+    <section class="calculator" aria-label="Calculator">
+      <div class="calculator-heading">
+        <div>
+          <p class="eyebrow">YOUR EVERYDAY TOOL</p>
+          <h1>Calculator</h1>
+        </div>
+        <button class="history-toggle" id="historyToggle" type="button" aria-expanded="false" aria-controls="historyPanel" title="Show calculation history">↺ <span>History</span></button>
+      </div>
+
+      <div class="display" aria-live="polite" aria-atomic="true">
+        <div id="expression" class="expression">&nbsp;</div>
+        <div id="display" class="display-value">0</div>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button class="key utility" data-action="clear" type="button">AC</button>
+        <button class="key utility" data-action="sign" type="button">+/−</button>
+        <button class="key utility" data-action="percent" type="button">%</button>
+        <button class="key operator" data-operator="÷" type="button" aria-label="Divide">÷</button>
+
+        <button class="key" data-digit="7" type="button">7</button>
+        <button class="key" data-digit="8" type="button">8</button>
+        <button class="key" data-digit="9" type="button">9</button>
+        <button class="key operator" data-operator="×" type="button" aria-label="Multiply">×</button>
+
+        <button class="key" data-digit="4" type="button">4</button>
+        <button class="key" data-digit="5" type="button">5</button>
+        <button class="key" data-digit="6" type="button">6</button>
+        <button class="key operator" data-operator="−" type="button" aria-label="Subtract">−</button>
+
+        <button class="key" data-digit="1" type="button">1</button>
+        <button class="key" data-digit="2" type="button">2</button>
+        <button class="key" data-digit="3" type="button">3</button>
+        <button class="key operator" data-operator="+" type="button" aria-label="Add">+</button>
+
+        <button class="key utility" data-action="delete" type="button">DEL</button>
+        <button class="key" data-digit="0" type="button">0</button>
+        <button class="key" data-action="decimal" type="button">.</button>
+        <button class="key equals" data-action="equals" type="button" aria-label="Equals">=</button>
+      </div>
+
+      <p class="keyboard-hint">Tip: You can also use your keyboard.</p>
+
+      <aside class="history-panel" id="historyPanel" hidden>
+        <div class="history-header">
+          <h2>Recent calculations</h2>
+          <button id="clearHistory" type="button">Clear history</button>
+        </div>
+        <ul id="historyList" class="history-list">
+          <li class="empty-history">Your calculations will appear here.</li>
+        </ul>
+      </aside>
+    </section>
+    <footer>© <span id="year"></span> Alamzy · Built for CodeAlpha Frontend Development Internship</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
